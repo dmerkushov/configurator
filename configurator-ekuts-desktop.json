@@ -1,0 +1,574 @@
+{
+	"configuratorVersion":"1.0",
+	"configuredSoftware":"EKUTS Desktop",
+	"prefconfEnabled":"true",
+	"paramGroups":
+	[
+		{
+			"paramGroupName":"Камеры видеонаблюдения",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"camera1connected",
+					"paramType":"Boolean",
+					"defaultValue":"false",
+					"title":"Камера 1 подключена",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"streamAddress1",
+					"paramType":"URL",
+					"defaultValue":"",
+					"title":"Адрес потока камеры 1",
+					"description":"Пример: rtsp://194.85.142.220:8553/PSIA/Streaming/channels/1?videoCodecType=MPEG4"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"camera2connected",
+					"paramType":"Boolean",
+					"defaultValue":"false",
+					"title":"Камера 2 подключена",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"streamAddress2",
+					"paramType":"URL",
+					"defaultValue":"",
+					"title":"Адрес потока камеры 2",
+					"description":"Пример: rtsp://194.85.142.220:8553/PSIA/Streaming/channels/1?videoCodecType=MPEG4"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"camera3connected",
+					"paramType":"Boolean",
+					"defaultValue":"false",
+					"title":"Камера 3 подключена",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"streamAddress3",
+					"paramType":"URL",
+					"defaultValue":"",
+					"title":"Адрес потока камеры 3",
+					"description":"Пример: rtsp://194.85.142.220:8553/PSIA/Streaming/channels/1?videoCodecType=MPEG4"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"camera4connected",
+					"paramType":"Boolean",
+					"defaultValue":"false",
+					"title":"Камера 4 подключена",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/f753/training/desktopmvp/main",
+					"paramName":"streamAddress4",
+					"paramType":"URL",
+					"defaultValue":"",
+					"title":"Адрес потока камеры 4",
+					"description":"Пример: rtsp://194.85.142.220:8553/PSIA/Streaming/channels/1?videoCodecType=MPEG4"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Камеры видеонаблюдения - сервис рестриминга",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/dmerkushov/ffmpeg/video/restreamer/client",
+					"paramName":"RESTREAMER_LOCATION",
+					"paramType":"String",
+					"defaultValue":"/opt/video-restreamer",
+					"title":"Расположение ПО рестриминга",
+					"description":"Расположение платформозависимого ПО рестриминга. Название директории, например, /opt/video-restreamer"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru/dmerkushov/ffmpeg/video/restreamer/client",
+					"paramName":"RESTREAMER_RUN",
+					"paramType":"String",
+					"defaultValue":"./video-restreamer",
+					"title":"Команда запуска ПО рестриминга",
+					"description":"Команда запуска платформозависимого ПО рестриминга. Команда, которую можно выполнить, находясь в расположении ПО рестриминга. Например, ./video-restreamer"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Мессенджер",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/ekuts/desktop/main",
+					"paramName":"imServerAddress",
+					"paramType":"IP Address",
+					"defaultValue":"127.0.0.1",
+					"title":"Адрес",
+					"description":"Адрес сервера мессенджера, в котором общаются курсанты и инструктор"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru/cniiag/ekuts/desktop/main",
+					"paramName":"imServerPort",
+					"paramType":"TCP or UDP Port",
+					"defaultValue":"8081",
+					"title":"Порт",
+					"description":"TCP-порт сервера мессенджера, в котором общаются курсанты и инструктор"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Включение/отключение панелей GUI",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.trainer.tabpanes",
+					"paramName":"GUI_TABPANE_LEFT_TABS",
+					"paramType":"String list, space delimited",
+					"possibleListElements": ["cadetsTab", "managementTab"],
+					"defaultValue":"cadetsTab managementTab",
+					"title":"Список вкладок на левой панели",
+					"description":"Список вкладок на левой панели через пробел. Возможные элементы списка: cadetsTab, managementTab"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.trainer.tabpanes",
+					"paramName":"GUI_TABPANE_RIGHT_TABS",
+					"paramType":"String list, space delimited",
+					"possibleListElements": ["commImitatorsTab", "powerImitatorsTab", "camerasTab", "vncsTab"],
+					"defaultValue":"commImitatorsTab powerImitatorsTab camerasTab vncsTab",
+					"title":"Список вкладок на правок панели",
+					"description":"Список вкладок на правой панели через пробел. Возможные элементы списка: commImitatorsTab, powerImitatorsTab, camerasTab, vncsTab"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Режим КШМ/ППИ",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"kshmMode",
+					"paramType":"Boolean",
+					"defaultValue":"true",
+					"title":"Режим КШМ?",
+					"description":"ВКЛ - режим КШМ, ВЫКЛ - режим ППИ"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Имитаторы",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"ATTACHMENT_LOCATION",
+					"paramType":"String",
+					"defaultValue":"/tmp",
+					"title":"Расположение материалов",
+					"description":"Расположение материалов, загруженных с имитаторов (журналов работы операторов, звуковых файлов). Название директории. Например, /tmp"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"IMITATOR_GROUPS",
+					"paramType":"JSON Array",
+					"defaultValue":"[{\"name\":\"NONE\",\"imitators\":[]}]",
+					"title":"Описание групп имитаторов",
+					"description":"Описание групп имитаторов на вкладке имитаторов. Подробно см. в руководстве по настройке Desktop"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Клиент УМ ЕКУТС",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.um.client",
+					"paramName":"BASE_URL",
+					"paramType":"URL",
+					"defaultValue":"http://localhost:8084/ekuts-um-service/webresources",
+					"title":"Базовый URL сервиса УМ ЕКУТС",
+					"description":"Например, http://localhost:8084/ekuts-um-service/webresources"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Журналирование (логи)",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"system",
+					"packagePath":"ru.cniiag.f753.training",
+					"paramName":"LOGGING_LEVEL",
+					"paramType":"JUL logging level",
+					"defaultValue":"ALL",
+					"title":"Уровень журналирования классов пакета ru.cniiag.f753.training.common",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":false,
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.common",
+					"paramName":"LOGGING_LEVEL",
+					"paramType":"JUL logging level",
+					"defaultValue":"INFO",
+					"title":"Уровень журналирования собственных классов приложения Desktop",
+					"description":""
+				}
+			]
+		},
+		{
+			"paramGroupName":"Протокол связи УПС1/УУПС2",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"UUPS2_SERVICENAME",
+					"paramType":"String",
+					"defaultValue":"Alice",
+					"title":"Название сервиса УУПС2",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"SERVICELOCATOR_HOST",
+					"paramType":"IP Address",
+					"defaultValue":"127.0.0.1",
+					"title":"IP-адрес хоста сервис-локатора",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"SERVICELOCATOR_PORT",
+					"paramType":"TCP or UDP Port",
+					"defaultValue":"44446",
+					"title":"TCP-порт сервис-локатора",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"UUPS2_SERVER_PORT",
+					"paramType":"TCP or UDP Port",
+					"defaultValue":"5555",
+					"title":"TCP-порт сервера УУПС2",
+					"description":"TCP-порт, на котором ожидаются соединения по УУПС2"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"UUPS2_SERVER_SOTIMEOUT",
+					"paramType":"Long integer",
+					"defaultValue":"50000",
+					"title":"Таймаут ожидания входящего соединения",
+					"description":"Таймаут ожидания входящего соединения по TCP, мс"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"UUPS2_SERVER_THREAD_NAME",
+					"paramType":"String",
+					"defaultValue":"UUPS2-Server",
+					"title":"Название потока сервера УУПС2",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"HOST",
+					"paramType":"IP Address",
+					"defaultValue":"127.0.0.1",
+					"title":"IP-адрес для приёма соединений УУПС2",
+					"description":"IP-адрес текущего хоста, на котором ожидаются соединения по УУПС2"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.dmerkushov.uups2.lib",
+					"paramName":"UUPS2_RESPONSE_TIMEOUT_DEFAULT",
+					"paramType":"Long integer",
+					"defaultValue":"10000",
+					"title":"Таймаут ожидания ответного сообщения",
+					"description":"Таймаут ожидания ответного сообщения по УУПС2, мс"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Многопоточное исполнение",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"THREADS_EXECUTORSERVICE_THREAD_COUNT",
+					"paramType":"Long integer",
+					"defaultValue":"8",
+					"title":"Количество потоков отложенных задач",
+					"description":"ПОСТОЯННОЕ количество потоков-исполнителей отложенных задач"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"THREADS_REFRESHERSERVICE_THREAD_COUNT",
+					"paramType":"Long integer",
+					"defaultValue":"2",
+					"title":"Количество потоков циклических задач",
+					"description":"ИСХОДНОЕ количество потоков-исполнителей циклических задач"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"THREADS_TERMINATION_TIMEOUT_MILLIS",
+					"paramType":"Long integer",
+					"defaultValue":"5000",
+					"title":"Таймаут завершения сервисов исполнения",
+					"description":"Таймаут завершения сервисов исполнения отложенных и циклических задач. Миллисекунды. Целое число"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"THREADS_REFRESH_DELAY_ADMIN",
+					"paramType":"Long integer",
+					"defaultValue":"2000",
+					"title":"Перерыв между обновлениями экрана администрирования",
+					"description":"Перерыв между обновлениями экрана администрирования. Миллисекунды. Целое число"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"THREADS_REFRESH_DELAY_TRAINER",
+					"paramType":"Long integer",
+					"defaultValue":"2000",
+					"title":"Перерыв между обновлениями экрана тренера",
+					"description":"Перерыв между обновлениями экрана тренера. Миллисекунды. Целое число"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.desktop.main",
+					"paramName":"THREADS_REFRESH_DELAY_CADET",
+					"paramType":"Long integer",
+					"defaultValue":"9000",
+					"title":"Перерыв между обновлениями экрана обучаемого",
+					"description":"Перерыв между обновлениями экрана обучаемого. Миллисекунды. Целое число"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Загрузка и рассылка ОШС",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"ORS_REFERENCE_AGENT",
+					"paramType":"String",
+					"defaultValue":"agent-1",
+					"title":"Название эталонного сервиса агента",
+					"description":"Название эталонного сервиса агента, на котором будет запрошена ОШС при нажатии кнопки \"Загрузить ОШС\""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"LPS_ORS_UUID",
+					"paramType":"UUID",
+					"defaultValue":"c884ccd5-b7f6-41dd-866e-ec8e8d94dee8",
+					"title":"UUID ОШС для LPS",
+					"description":"UUID, под которым в LPS хранится ОШС. ВНИМАНИЕ! Desktop может оперативно изменять значение этого параметра"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Список АРМ курсантов",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"LPS_ARMLIST_UUID",
+					"paramType":"UUID",
+					"defaultValue":"8b8e10cc-8a77-45ae-b838-02492c87d68d",
+					"title":"UUID списка АРМ курсантов для LPS",
+					"description":"UUID, под которым в LPS хранится список АРМ курсантов"
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"ARMLIST_DEFAULT",
+					"paramType":"JSON Object",
+					"defaultValue":"{\"arms\": [], \"class\":\"ru.cniiag.f753.training.common.GeneralEntity\", \"uuid\":\"8b8e10cc-8a77-45ae-b838-02492c87d68d\", \"timestamp\": 12345678}",
+					"title":"Список АРМ курсантов по умолчанию",
+					"description":"Список АРМ курсантов, который будет загружен при отсутствии такового в LPS. Подробно см. в руководстве по настройке Desktop"
+				}
+			]
+		},
+		{
+			"paramGroupName":"Работа с АРМИ",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"UUPS2_ARMI_REMOTENAME",
+					"paramType":"String",
+					"defaultValue":"ARMI",
+					"title":"Имя УУПС2-сервиса АРМИ",
+					"description":""
+				}
+			]
+		},
+		{
+			"paramGroupName":"Прослушивание сообщений КСАУ",
+			"params":
+			[
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"MESSAGESPY_UDP_PORT",
+					"paramType":"TCP or UDP Port",
+					"defaultValue":"4444",
+					"title":"UDP-порт слушателя сообщений КСАУ",
+					"description":""
+				},
+				{
+					"configurationType":"Preferences",
+					"prefconf":true,
+					"prefconfEnvironment":"desktop",
+					"sysuser":"user",
+					"packagePath":"ru.cniiag.ekuts.engine",
+					"paramName":"MESSAGESPY_UDP_MAXDATAGRAMSIZE",
+					"paramType":"Long integer",
+					"defaultValue":"5000",
+					"title":"Максимальный размер UDP-датаграммы",
+					"description":"Максимальный размер UDP-датаграммы при прослушивании сообщений КСАУ. Количество байт"
+				}
+			]
+		}
+	]
+}

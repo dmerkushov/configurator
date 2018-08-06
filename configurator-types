@@ -1,0 +1,14 @@
+String +
+Long integer +
+Floating point, double precision +
+Boolean +
+URL +-
+UUID +
+JSON Object +
+JSON Array +
+IP Address +-
+IPv4 Address +
+IPv6 Address -
+TCP or UDP Port +
+JUL logging level +
+String list, space delimited
