@@ -6,12 +6,17 @@
 package ru.dmerkushov.configurator;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,6 +32,8 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,12 +53,16 @@ public class JConfigurationEditor extends JPanel {
 	public final JFrame frame;
 	public final File configurationDescriptionFile;
 
+	public static final int HINTFRAME_WIDTH = 400;
+	public static final int HINTFRAME_HEIGHT = 150;
+
 	JButton checkBtn = new JButton ("Проверить");
 	JButton saveBtn = new JButton ("Сохранить");
 	JButton cancelBtn = new JButton ("Закрыть");
 
 	final List<JParamEditor> paramEditors = new ArrayList<> ();
 	final Map<JParamEditor, ParamType> paramTypes = new HashMap<> ();
+	final JDialog hintDia;
 
 	public JConfigurationEditor (JFrame frame, File configurationDescriptionFile) {
 		Objects.requireNonNull (frame, "frame");
@@ -59,6 +70,10 @@ public class JConfigurationEditor extends JPanel {
 
 		this.frame = frame;
 		this.configurationDescriptionFile = configurationDescriptionFile;
+
+		hintDia = new JDialog (frame);
+		hintDia.setUndecorated (true);
+		hintDia.setSize (HINTFRAME_WIDTH, HINTFRAME_HEIGHT);
 
 		FileReader fr;
 		try {
@@ -138,12 +153,59 @@ public class JConfigurationEditor extends JPanel {
 					String paramTitle = param.getString ("title", "(no title)");
 					JLabel paramTitleLabel = new JLabel (paramTitle);
 					paramTitleLabel.setFont (labelFont);
-					paramTitleLabel.setToolTipText (param.getString ("description", ""));
 					GridBagConstraints paramTitleLabelConstraints = new GridBagConstraints ();
 					paramTitleLabelConstraints.gridx = 0;
 					paramTitleLabelConstraints.gridy = rowIndex;
 					paramTitleLabelConstraints.anchor = GridBagConstraints.WEST;
 					configurationPanel.add (paramTitleLabel, paramTitleLabelConstraints);
+					final String description = param.getString ("description", "");
+					if (!description.equals ("")) {
+						final JButton descrButton = new JButton ("?");
+						descrButton.addActionListener (new ActionListener () {
+							@Override
+							public void actionPerformed (ActionEvent e) {
+								Point descrLoc = descrButton.getLocationOnScreen ();
+								Dimension screenSize = Toolkit.getDefaultToolkit ().getScreenSize ();
+								if (descrLoc.x + HINTFRAME_WIDTH > screenSize.width) {
+									descrLoc.x = screenSize.width - HINTFRAME_WIDTH;
+								}
+								if (descrLoc.y + HINTFRAME_HEIGHT > screenSize.height) {
+									descrLoc.y = screenSize.height - HINTFRAME_HEIGHT;
+								}
+								hintDia.setLocation (descrLoc);
+
+								Component[] components;
+								synchronized (hintDia.getContentPane ().getTreeLock ()) {
+									components = hintDia.getContentPane ().getComponents ();
+								}
+								for (Component component : components) {
+									hintDia.remove (component);
+								}
+
+								JEditorPane hintPane = new JEditorPane ("text/html", description);
+								hintPane.setEditable (false);
+
+								JScrollPane scrollPane = new JScrollPane (hintPane);
+								scrollPane.setVerticalScrollBarPolicy (JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+								scrollPane.setHorizontalScrollBarPolicy (JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+								hintDia.add (scrollPane);
+
+								hintPane.addMouseListener (new MouseAdapter () {
+									public void mouseClicked (MouseEvent e) {
+										hintDia.setVisible (false);
+									}
+								});
+
+								hintDia.setVisible (true);
+							}
+						});
+						GridBagConstraints descrButtonConstraints = new GridBagConstraints ();
+						descrButtonConstraints.gridx = 1;
+						descrButtonConstraints.gridy = rowIndex;
+						descrButtonConstraints.anchor = GridBagConstraints.WEST;
+						configurationPanel.add (descrButton, descrButtonConstraints);
+					}
 				}
 				{	// Variable visibility block
 					String paramTypeStr = param.getString ("paramType", "String");
@@ -165,7 +227,7 @@ public class JConfigurationEditor extends JPanel {
 					paramEditors.add (paramEditor);
 
 					GridBagConstraints paramEditorConstraints = new GridBagConstraints ();
-					paramEditorConstraints.gridx = 1;
+					paramEditorConstraints.gridx = 2;
 					paramEditorConstraints.gridy = rowIndex;
 					paramEditorConstraints.anchor = GridBagConstraints.WEST;
 					configurationPanel.add (paramEditor, paramEditorConstraints);
