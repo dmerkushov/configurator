@@ -140,15 +140,6 @@ public class JConfigurationEditor extends JPanel {
 			for (JsonObject param : params.getValuesAs (JsonObject.class)) {
 				rowIndex++;
 
-//				{	// Variable visibility block
-//					JSeparator sep = new JSeparator (JSeparator.HORIZONTAL);
-//					sep.setPreferredSize (new Dimension (500, 3));
-//					GridBagConstraints sepConstraints = new GridBagConstraints ();
-//					sepConstraints.gridx = 1;
-//					sepConstraints.gridy = rowIndex;
-//					configurationPanel.add (sep, sepConstraints);
-//				}
-//				rowIndex++;
 				{	// Variable visibility block
 					String paramTitle = param.getString ("title", "(no title)");
 					JLabel paramTitleLabel = new JLabel (paramTitle);
